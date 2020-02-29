@@ -19,10 +19,10 @@ export class BlogPostService {
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.appUrl;
-    this.myApiUrl = 'api/BlogPosts/';
+    this.myApiUrl = 'BlogPosts/';
   }
   getBlogPosts(): Observable<BlogPost[]> {
-    return this.http.get<BlogPost[]>(this.myAppUrl + this.myApiUrl).pipe
+    return this.http.get<BlogPost[]>(this.myAppUrl + "BlogPost/GetBlogPostList").pipe
       (
         retry(1),
         catchError(this.errorHandler)
